@@ -47,3 +47,4 @@ jobs:
           something-neat: ${{ github.event.inputs.something}}
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
+      - run: echo goodbye time ${{ steps.foo.outputs.time}}
