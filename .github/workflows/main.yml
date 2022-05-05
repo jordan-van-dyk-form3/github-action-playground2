@@ -22,7 +22,17 @@
 #         shell: bash
 
 
-on: [push]
+on: 
+  workflow_dispatch:
+    inputs:
+      a_name:
+        description: "Someone's name"
+        required: true
+        default: " a small robot"
+      something:
+        description: "something neat"
+        required: true
+        default: "top"
 
 jobs:
   hello_world_job:
@@ -31,8 +41,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: foo
-        uses: jordan-van-dyk-form3/github-action-playground@v3
+        uses: jordan-van-dyk-form3/composite@v1
         with:
-          who-to-greet: 'Mona the Octocat'
+          who: ${{ github.event.inputs.a_name }}
+          something-neat: ${{ github.event.inputs.something}}
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
