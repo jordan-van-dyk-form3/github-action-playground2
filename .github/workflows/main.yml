@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: foo
-        uses: jordan-van-dyk-form3/composite@v3
+        uses: jordan-van-dyk-form3/composite@master
         with:
           who: ${{ github.event.inputs.a_name }}
           something-neat: ${{ github.event.inputs.something}}
