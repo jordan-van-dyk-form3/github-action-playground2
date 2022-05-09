@@ -49,6 +49,7 @@ jobs:
         with:
           who: ${{ github.event.inputs.a_name }}
           something-neat: ${{ github.event.inputs.something}}
+          shhh: ${{ secrets.superSecret }}
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
       - run: echo goodbye time ${{ steps.foo.outputs.time }}
