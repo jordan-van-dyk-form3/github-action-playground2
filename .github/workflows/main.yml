@@ -37,9 +37,8 @@ on:
 jobs:
   a_cool_reusable_thing:
     uses: jordan-van-dyk-form3/github-action-playground/.github/workflows/main.yml@main
-    with:
-      secrets:
-        superSecret: ${{ secrets.superSecret }}
+    secrets:
+      superSecret: ${{ secrets.superSecret }}
   hello_world_job:
     runs-on: ubuntu-latest
     name: A job to say hello
