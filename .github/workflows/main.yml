@@ -48,3 +48,8 @@ jobs:
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
       - run: echo goodbye time ${{ steps.foo.outputs.time }}
+      - id: reuse
+        uses: jordan-van-dyk-form3/github-action-playground2/.github/workflows/main.yml@main
+        with:
+          secrets:
+            superSecret: ${{ secrets.superSecret }}
