@@ -49,7 +49,7 @@ jobs:
         shell: bash
       - run: echo goodbye time ${{ steps.foo.outputs.time }}
       - id: reuse
-        uses: jordan-van-dyk-form3/github-action-playground2/.github/workflows/main.yml@main
+        uses: jordan-van-dyk-form3/github-action-playground/.github/workflows/main.yml@main
         with:
           secrets:
             superSecret: ${{ secrets.superSecret }}
