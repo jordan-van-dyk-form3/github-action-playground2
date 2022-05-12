@@ -44,7 +44,7 @@ jobs:
     container: alpine:latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v3
+      # - uses: actions/checkout@v3
       - id: foo
         uses: jordan-van-dyk-form3/composite@main
         with:
