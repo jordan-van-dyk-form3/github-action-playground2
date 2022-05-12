@@ -52,5 +52,5 @@ jobs:
           something-neat: ${{ github.event.inputs.something}}
           shhh: ${{ secrets.superSecret }}
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
-        shell: bash
+        shell: sh
       - run: echo goodbye time ${{ steps.foo.outputs.time }}
