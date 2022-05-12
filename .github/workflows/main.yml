@@ -41,10 +41,11 @@ jobs:
       superSecret: ${{ secrets.superSecret }}
   hello_world_job:
     runs-on: ubuntu-latest
-    container: alpine:latest
+    # container: alpine:latest
+    container: node:16
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - id: foo
         uses: jordan-van-dyk-form3/composite@main
         with:
