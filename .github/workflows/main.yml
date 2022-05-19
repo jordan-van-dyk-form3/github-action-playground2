@@ -36,23 +36,32 @@ on:
 env:
   test: "this is a test"
 jobs:
-  a_cool_reusable_thing:
-    uses: jordan-van-dyk-form3/github-action-playground/.github/workflows/main.yml@main
-    secrets:
-      superSecret: ${{ secrets.superSecret }}
-  hello_world_job:
-    runs-on: ubuntu-latest
-    # container: alpine:latest
-    container: node:16
-    name: A job to say hello
-    steps:
-      - uses: actions/checkout@v3
-      - id: foo
-        uses: jordan-van-dyk-form3/composite@main
-        with:
-          who: ${{ github.event.inputs.a_name }}
-          something-neat: ${{ github.event.inputs.something}}
-          shhh: ${{ secrets.superSecret }}
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
-        shell: sh
-      - run: echo goodbye time ${{ steps.foo.outputs.time }}
+  matrix_test:
+    strategy:
+      matrix:
+        alist: [thing1, thing2, thing3]
+  runs-on: ubuntu-latest
+  steps:
+    - uses: jordan-van-dyk-form3/composite@main
+      with:
+        something-neat: ${{ matrix.alist }}
+  # a_cool_reusable_thing:
+  #   uses: jordan-van-dyk-form3/github-action-playground/.github/workflows/main.yml@main
+  #   secrets:
+  #     superSecret: ${{ secrets.superSecret }}
+  # hello_world_job:
+  #   runs-on: ubuntu-latest
+  #   # container: alpine:latest
+  #   container: node:16
+  #   name: A job to say hello
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - id: foo
+  #       uses: jordan-van-dyk-form3/composite@main
+  #       with:
+  #         who: ${{ github.event.inputs.a_name }}
+  #         something-neat: ${{ github.event.inputs.something}}
+  #         shhh: ${{ secrets.superSecret }}
+  #     - run: echo random-number ${{ steps.foo.outputs.random-number }}
+  #       shell: sh
+  #     - run: echo goodbye time ${{ steps.foo.outputs.time }}
