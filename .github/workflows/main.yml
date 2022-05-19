@@ -41,10 +41,10 @@ jobs:
     strategy:
       matrix:
         alist: [thing1, thing2, thing3]
-  steps:
-    - uses: jordan-van-dyk-form3/composite@main
-      with:
-        something-neat: ${{ matrix.alist }}
+    steps:
+      - uses: jordan-van-dyk-form3/composite@main
+        with:
+          something-neat: ${{ matrix.alist }}
   # a_cool_reusable_thing:
   #   uses: jordan-van-dyk-form3/github-action-playground/.github/workflows/main.yml@main
   #   secrets:
